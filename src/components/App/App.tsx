@@ -1,26 +1,26 @@
 import Section from '../Section/Section';
 import Container from '../Container/Container';
-import { useEffect } from 'react';
+
 import { getPhotos } from '../../services/photos';
 import Form from '../Form/Form';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await getPhotos('animal');
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
+  const handleSabmit = async (query: string) => {
+    try {
+      const data = await getPhotos(query);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Section>
-        <Container>Home page</Container>
-        <Form />
+        <Container>
+          <Form onSabmit={handleSabmit} />
+          <Toaster />
+        </Container>
       </Section>
     </>
   );
