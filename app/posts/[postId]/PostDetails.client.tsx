@@ -36,11 +36,11 @@ export default function PostDetailsClient() {
 
     if(!data) return
     const fn = async () => {
-      const response = fetchUserById(data?.userId)
+      const response =  await fetchUserById(data.userId)
       setUser(response)
     };
     fn();
-  }, []);
+  }, [data]);
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function PostDetailsClient() {
 
                 <p className={css.content}>{data?.body}</p>
               </div>
-              <p className={css.user}>Author: User name</p>
+              <p className={css.user}>Author: {user?.name ?? 'Loading...'}</p>
             </div>
           </div>
         </div>
