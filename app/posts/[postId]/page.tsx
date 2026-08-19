@@ -1,9 +1,15 @@
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import PostDetailsClient from './PostDetails.client';
 import { fetchPostById } from '@/lib/api';
+
+
+
 interface PostDetailsProps {
   params: Promise<{postId: string}>
 }
+
+
+
 export default async function PostDetails({ params }: PostDetailsProps) {
   const { postId } = await params
   

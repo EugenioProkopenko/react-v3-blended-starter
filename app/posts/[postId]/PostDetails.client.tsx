@@ -25,11 +25,9 @@ export default function PostDetailsClient() {
 
   const handleClickBack = () => {
     router.back()
+};
 
 
-
-
-  };
   const [user, setUser] = useState<User | null>(null)  
 
   useEffect(() => {
